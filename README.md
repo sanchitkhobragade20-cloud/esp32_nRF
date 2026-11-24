@@ -16,7 +16,7 @@ An optimized DIY edition of **nRFBox** designed for the **ESP32 Dev Module** wit
 * **Tactile Buttons (Connect to GND):**
   * UP: **GPIO 32** | DOWN: **GPIO 33**
   * SELECT: **GPIO 25** | BACK: **GPIO 4**
-* **Optional nRF24L01+ Module (SPI):**
+*  nRF24L01+ Module (SPI):**
   * CE: **GPIO 5** | CSN: **GPIO 17** | SCK: **GPIO 18**
   * MOSI: **GPIO 23** | MISO: **GPIO 19**
 
