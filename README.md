@@ -11,14 +11,23 @@ An optimized DIY edition of **nRFBox** designed for the **ESP32 Dev Module** wit
 * **Core 2.0.17 Fixes:** Cleaned up duplicate linker definitions and symbol clashes for smooth compilation in the Arduino IDE.
 
 ### 📌 Hardware Pinout
-* **OLED Display (SSD1306 I2C):**
-  * SDA → **GPIO 21** | SCL → **GPIO 22** | VCC → 3.3V | GND → GND
-* **Tactile Buttons (Connect to GND):**
-  * UP: **GPIO 32** | DOWN: **GPIO 33**
-  * SELECT: **GPIO 25** | BACK: **GPIO 4**
-*  nRF24L01+ Module (SPI):**
-  * CE: **GPIO 5** | CSN: **GPIO 17** | SCK: **GPIO 18**
-  * MOSI: **GPIO 23** | MISO: **GPIO 19**
+Component	Module Pin	ESP32 (30-Pin)	Signal Function & Notes
+SSD1306 OLED	GND	GND	Ground
+SSD1306 OLED	VCC	3V3	3.3V Power
+SSD1306 OLED	SCL	GPIO 22 (D22)	I2C Clock
+SSD1306 OLED	SDA	GPIO 21 (D21)	I2C Data
+nRF24L01 Module	Pin 1 (GND)	GND	Ground
+nRF24L01 Module	Pin 2 (VCC)	3V3	⚠️ 3.3V ONLY (Never connect to 5V or VIN!)
+nRF24L01 Module	Pin 3 (CE)	GPIO 5 (D5)	Chip Enable
+nRF24L01 Module	Pin 4 (CSN)	GPIO 26 (D26)	★ Chip Select (30-Pin Fix)
+nRF24L01 Module	Pin 5 (SCK)	GPIO 18 (D18)	SPI Clock
+nRF24L01 Module	Pin 6 (MOSI)	GPIO 23 (D23)	SPI Master Out
+nRF24L01 Module	Pin 7 (MISO)	GPIO 19 (D19)	SPI Master In
+nRF24L01 Module	Pin 8 (IRQ)	Disconnected	Leave empty / unconnected
+Button UP ⬆️	Terminal 1 / 2	GPIO 32 (D32) & GND	Internal pullup active LOW
+Button DOWN ⬇️	Terminal 1 / 2	GPIO 33 (D33) & GND	Internal pullup active LOW
+Button SELECT 🔘	Terminal 1 / 2	GPIO 25 (D25) & GND	Internal pullup active LOW
+Button BACK ↩️	Terminal 1 / 2	GPIO 4 (D4) & GND	Internal pullup active LOW
 
 ### ⚙️ Arduino IDE Setup
 1. **Board:** Select **ESP32 Dev Module** (using **ESP32 Core v2.0.17**).
